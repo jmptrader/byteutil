@@ -24,6 +24,10 @@ func IsDigitUsingCompare(b byte) bool {
 	return '0' <= b && b <= '9'
 }
 
+func IsDigitUsingSubtraction(b byte) bool {
+	return b-'0' <= 9
+}
+
 func IsHexDigitUsingCompare(b byte) bool {
 	return '0' <= b && b <= '9' || 'a' <= b && b <= 'f' || 'A' <= b && b <= 'F'
 }
@@ -57,6 +61,14 @@ func BenchmarkIsDigitCompare(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		for j := 0; j < 256; j++ {
 			IsDigitUsingCompare(byte(j))
+		}
+	}
+}
+
+func BenchmarkIsDigitSubtraction(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		for j := 0; j < 256; j++ {
+			IsDigitUsingSubtraction(byte(j))
 		}
 	}
 }
