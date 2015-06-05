@@ -104,3 +104,29 @@ func ExampleToUpper() {
 	// Output:
 	// .012345ABCDEFABCDEFабвгд
 }
+
+func ExampleByteToLower() {
+	fmt.Printf("%c\n", ByteToLower('a'))
+	fmt.Printf("%c\n", ByteToLower('A'))
+	fmt.Printf("%c\n", ByteToLower('0'))
+	fmt.Printf("%c\n", ByteToLower('.'))
+
+	// Output:
+	// a
+	// a
+	// 0
+	// .
+}
+
+func ExampleByteToUpper() {
+	fmt.Printf("%c\n", ByteToUpper('a'))
+	fmt.Printf("%c\n", ByteToUpper('A'))
+	fmt.Printf("%c\n", ByteToUpper('0'))
+	fmt.Printf("%c\n", ByteToUpper('.'))
+
+	// Output:
+	// A
+	// A
+	// 0
+	// .
+}

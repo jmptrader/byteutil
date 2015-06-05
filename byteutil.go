@@ -94,3 +94,11 @@ func ToUpper(s string) string {
 	}
 	return string(buf)
 }
+
+func ByteToLower(b byte) byte {
+	return tolower[b]
+}
+
+func ByteToUpper(b byte) byte {
+	return toupper[b]
+}
