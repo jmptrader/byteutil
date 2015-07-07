@@ -86,7 +86,7 @@ func ToLower(s string) string {
 
 	hasUpper := false
 	for i := 0; i < len(s); i++ {
-		if IsUppercaseLetter(s[i]) {
+		if uppercase[s[i]] {
 			hasUpper = true
 			break
 		}
@@ -109,7 +109,7 @@ func ToUpper(s string) string {
 
 	hasLower := false
 	for i := 0; i < len(s); i++ {
-		if IsLowercaseLetter(s[i]) {
+		if lowercase[s[i]] {
 			hasLower = true
 			break
 		}
