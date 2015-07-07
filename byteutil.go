@@ -80,6 +80,21 @@ func IsAlphaNum(b byte) bool {
 }
 
 func ToLower(s string) string {
+	if s == "" {
+		return ""
+	}
+
+	hasUpper := false
+	for i := 0; i < len(s); i++ {
+		if IsUppercaseLetter(s[i]) {
+			hasUpper = true
+			break
+		}
+	}
+	if !hasUpper {
+		return s
+	}
+
 	buf := make([]byte, len(s))
 	for i := 0; i < len(s); i++ {
 		buf[i] = tolower[s[i]]
@@ -88,6 +103,21 @@ func ToLower(s string) string {
 }
 
 func ToUpper(s string) string {
+	if s == "" {
+		return ""
+	}
+
+	hasLower := false
+	for i := 0; i < len(s); i++ {
+		if IsLowercaseLetter(s[i]) {
+			hasLower = true
+			break
+		}
+	}
+	if !hasLower {
+		return s
+	}
+
 	buf := make([]byte, len(s))
 	for i := 0; i < len(s); i++ {
 		buf[i] = toupper[s[i]]
