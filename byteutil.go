@@ -132,3 +132,25 @@ func ByteToLower(b byte) byte {
 func ByteToUpper(b byte) byte {
 	return toupper[b]
 }
+
+func IndexAny(s, chars string) int {
+	var t [256]bool
+	for i := 0; i < len(chars); i++ {
+		t[chars[i]] = true
+	}
+	for i := 0; i < len(s); i++ {
+		if t[s[i]] {
+			return i
+		}
+	}
+	return -1
+}
+
+func IndexAnyTable(s string, t *[256]bool) int {
+	for i := 0; i < len(s); i++ {
+		if t[s[i]] {
+			return i
+		}
+	}
+	return -1
+}

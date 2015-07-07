@@ -130,3 +130,19 @@ func ExampleByteToUpper() {
 	// 0
 	// .
 }
+
+func ExampleIndexAny() {
+	fmt.Println(IndexAny("abcdefghijklmnopqrstuvwxyz", "zyx"))
+
+	// Output:
+	// 23
+}
+
+func ExampleIndexAnyTable() {
+	var t [256]bool
+	t['z'], t['y'], t['x'] = true, true, true
+	fmt.Println(IndexAnyTable("abcdefghijklmnopqrstuvwxyz", &t))
+
+	// Output:
+	// 23
+}

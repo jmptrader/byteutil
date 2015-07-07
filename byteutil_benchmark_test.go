@@ -176,3 +176,37 @@ func BenchmarkToUpperStringsToUpper(b *testing.B) {
 		strings.ToUpper(printable)
 	}
 }
+
+func BenchmarkIndexAny(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		IndexAny(printable, "abcdefghijklmnopqrstuvwxyz")
+		IndexAny(printable, " abcdefghijklmnopqrstuvwxyz")
+		IndexAny(printable, " ")
+	}
+}
+
+func BenchmarkIndexAnyTable(b *testing.B) {
+	var t1, t2, t3 [256]bool
+	for _, b := range "abcdefghijklmnopqrstuvwxyz" {
+		t1[b] = true
+	}
+	for _, b := range " abcdefghijklmnopqrstuvwxyz" {
+		t2[b] = true
+	}
+	for _, b := range " " {
+		t3[b] = true
+	}
+	for i := 0; i < b.N; i++ {
+		IndexAnyTable(printable, &t1)
+		IndexAnyTable(printable, &t2)
+		IndexAnyTable(printable, &t3)
+	}
+}
+
+func BenchmarkStringsIndexAny(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		strings.IndexAny(printable, "abcdefghijklmnopqrstuvwxyz")
+		strings.IndexAny(printable, " abcdefghijklmnopqrstuvwxyz")
+		strings.IndexAny(printable, " ")
+	}
+}
