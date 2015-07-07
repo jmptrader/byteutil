@@ -25,33 +25,33 @@ var (
 )
 
 func init() {
-	for _, b := range []byte("0123456789") {
+	for _, b := range "0123456789" {
 		digit[b] = true
 	}
-	for _, b := range []byte("0123456789abcdefABCDEF") {
+	for _, b := range "0123456789abcdefABCDEF" {
 		hexdigit[b] = true
 	}
-	for _, b := range []byte("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") {
+	for _, b := range "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" {
 		letter[b] = true
 	}
-	for _, b := range []byte("abcdefghijklmnopqrstuvwxyz") {
+	for _, b := range "abcdefghijklmnopqrstuvwxyz" {
 		lowercase[b] = true
 	}
-	for _, b := range []byte("ABCDEFGHIJKLMNOPQRSTUVWXYZ") {
+	for _, b := range "ABCDEFGHIJKLMNOPQRSTUVWXYZ" {
 		uppercase[b] = true
 	}
-	for _, b := range []byte("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") {
+	for _, b := range "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" {
 		alphanum[b] = true
 	}
 	for i := 0; i < 256; i++ {
 		tolower[i] = byte(i)
 		toupper[i] = byte(i)
 	}
-	for _, b := range []byte("ABCDEFGHIJKLMNOPQRSTUVWXYZ") {
-		tolower[b] = b - 'A' + 'a'
+	for _, b := range "ABCDEFGHIJKLMNOPQRSTUVWXYZ" {
+		tolower[b] = byte(b) - 'A' + 'a'
 	}
-	for _, b := range []byte("abcdefghijklmnopqrstuvwxyz") {
-		toupper[b] = b - 'a' + 'A'
+	for _, b := range "abcdefghijklmnopqrstuvwxyz" {
+		toupper[b] = byte(b) - 'a' + 'A'
 	}
 }
 
