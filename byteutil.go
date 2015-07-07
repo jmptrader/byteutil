@@ -155,3 +155,15 @@ func IndexAnyTable(s string, t *[256]bool) int {
 	}
 	return -1
 }
+
+func Unhex(d byte) byte {
+	switch {
+	case digit[d]:
+		return d - '0'
+	case uppercase[d]:
+		return d - 'A' + 10
+	case lowercase[d]:
+		return d - 'a' + 10
+	}
+	panic("unhex: not hex digit")
+}

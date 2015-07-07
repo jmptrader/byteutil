@@ -146,3 +146,20 @@ func ExampleIndexAnyTable() {
 	// Output:
 	// 23
 }
+
+func ExampleUnhex() {
+	fmt.Println(Unhex('0'))
+	fmt.Println(Unhex('9'))
+	fmt.Println(Unhex('a'))
+	fmt.Println(Unhex('A'))
+	fmt.Println(Unhex('f'))
+	fmt.Println(Unhex('F'))
+
+	// Output:
+	// 0
+	// 9
+	// 10
+	// 10
+	// 15
+	// 15
+}
